@@ -1,0 +1,22 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: parseltongue-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: parseltongue
+      MYSQL_USER: parseltongue
+      MYSQL_PASSWORD: parseltongue_dev
+      MYSQL_ROOT_PASSWORD: root_dev_only
+    ports:
+      - "3306:3306"
+    volumes:
+      - parseltongue_mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot_dev_only"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  parseltongue_mysql_data:
