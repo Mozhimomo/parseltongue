@@ -7,7 +7,6 @@ type UserRole = "USER" | "ADMIN";
 type User = {
   id: number;
   username: string;
-  email: string | null;
   role: UserRole;
 };
 
@@ -62,10 +61,9 @@ function nowLabel() {
 
 export default function Home() {
   const [mode, setMode] = useState<"login" | "register">("login");
-  const [identifier, setIdentifier] = useState("demo_user");
+  const [loginUsername, setLoginUsername] = useState("demo_user");
   const [loginPassword, setLoginPassword] = useState("password123");
   const [username, setUsername] = useState("demo_user");
-  const [email, setEmail] = useState("demo@example.com");
   const [registerPassword, setRegisterPassword] = useState("password123");
   const [accessToken, setAccessToken] = useState("");
   const [user, setUser] = useState<User | null>(null);
@@ -120,7 +118,7 @@ export default function Home() {
     try {
       const data = await callApi<LoginData>("/api/auth/login", {
         method: "POST",
-        body: JSON.stringify({ identifier, password: loginPassword }),
+        body: JSON.stringify({ username: loginUsername, password: loginPassword }),
       });
       acceptLogin(data, "登录成功，会话已写入 MySQL");
     } catch (error) {
@@ -139,11 +137,10 @@ export default function Home() {
         method: "POST",
         body: JSON.stringify({
           username,
-          email: email || null,
           password: registerPassword,
         }),
       });
-      setIdentifier(username);
+      setLoginUsername(username);
       setLoginPassword(registerPassword);
       setMode("login");
       setBackendState("online");
@@ -318,10 +315,10 @@ export default function Home() {
               {mode === "login" ? (
                 <form onSubmit={handleLogin}>
                   <label>
-                    用户名或邮箱
+                    用户名
                     <input
-                      value={identifier}
-                      onChange={(event) => setIdentifier(event.target.value)}
+                      value={loginUsername}
+                      onChange={(event) => setLoginUsername(event.target.value)}
                       autoComplete="username"
                       placeholder="your_name"
                       required
@@ -354,15 +351,6 @@ export default function Home() {
                       minLength={3}
                       maxLength={32}
                       required
-                    />
-                  </label>
-                  <label>
-                    邮箱 <em>选填</em>
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(event) => setEmail(event.target.value)}
-                      autoComplete="email"
                     />
                   </label>
                   <label>
@@ -402,7 +390,7 @@ export default function Home() {
                 <div>
                   <span>当前用户</span>
                   <strong>{user.username}</strong>
-                  <small>{user.email || "未绑定邮箱"}</small>
+                  <small>小游戏账号</small>
                 </div>
                 <div className="role-chip">{user.role}</div>
               </div>
