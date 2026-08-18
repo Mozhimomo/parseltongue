@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mozhi.parseltongue.dao.UserDao">
+
+    <resultMap id="userResultMap" type="mozhi.parseltongue.entity.User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="passwordHash" column="password_hash"/>
+        <result property="role" column="role"/>
+        <result property="enabled" column="enabled"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+
+    <sql id="userColumns">
+        id, username, password_hash, role, enabled, created_at, updated_at
+    </sql>
+
+    <select id="findById" resultMap="userResultMap">
+        SELECT <include refid="userColumns"/>
+        FROM users
+        WHERE id = #{id}
+    </select>
+
+    <select id="findByUsername" resultMap="userResultMap">
+        SELECT <include refid="userColumns"/>
+        FROM users
+        WHERE LOWER(username) = LOWER(#{username})
+        LIMIT 1
+    </select>
+
+    <insert id="insert" parameterType="mozhi.parseltongue.entity.User"
+            useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO users (
+            username,
+            password_hash,
+            role,
+            enabled,
+            created_at,
+            updated_at
+        ) VALUES (
+            #{username},
+            #{passwordHash},
+            #{role},
+            #{enabled},
+            #{createdAt},
+            #{updatedAt}
+        )
+    </insert>
+</mapper>

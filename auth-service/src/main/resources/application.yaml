@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: ParseltongueAuthService
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/parseltongue?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai}
+    username: ${DB_USERNAME:parseltongue}
+    password: ${DB_PASSWORD:parseltongue_dev}
+  flyway:
+    enabled: true
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    default-enum-type-handler: org.apache.ibatis.type.EnumTypeHandler
+
+server:
+  port: ${AUTH_SERVICE_PORT:8081}
+
+auth:
+  jwt:
+    secret: ${JWT_SECRET:cGFyc2VsdG9uZ3VlLWRldi1qd3Qtc2VjcmV0LWNoYW5nZS1tZQ==}
+    access-token-ttl: 30m
+  session:
+    ttl: 7d
+  cookie:
+    refresh-token-name: refresh_token
+    secure: ${AUTH_COOKIE_SECURE:false}
+    same-site: Strict
