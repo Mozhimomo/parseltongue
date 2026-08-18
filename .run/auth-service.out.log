@@ -1,0 +1,91 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< mozhi:auth-service >-------------------------
+[INFO] Building Parseltongue Auth Service 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:4.1.0:run (default-cli) > test-compile @ auth-service >>>
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ auth-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 4 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ auth-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ auth-service ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ auth-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:4.1.0:run (default-cli) < test-compile @ auth-service <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:4.1.0:run (default-cli) @ auth-service ---
+Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-buildpack-platform/4.1.0/spring-boot-buildpack-platform-4.1.0.jar
+Progress (1): 0.9/333 kBProgress (1): 2.3/333 kBProgress (1): 3.6/333 kBProgress (1): 5.0/333 kBProgress (1): 6.4/333 kBProgress (1): 7.7/333 kBProgress (1): 9.1/333 kBProgress (1): 10/333 kB Progress (1): 12/333 kBProgress (1): 13/333 kBProgress (1): 15/333 kBProgress (1): 16/333 kBProgress (1): 17/333 kBProgress (1): 19/333 kBProgress (1): 20/333 kBProgress (1): 21/333 kBProgress (1): 23/333 kBProgress (1): 24/333 kBProgress (1): 25/333 kBProgress (1): 27/333 kBProgress (1): 28/333 kBProgress (1): 30/333 kBProgress (1): 31/333 kBProgress (1): 32/333 kBProgress (1): 34/333 kBProgress (1): 35/333 kBProgress (1): 36/333 kBProgress (1): 38/333 kBProgress (1): 39/333 kBProgress (1): 41/333 kBProgress (1): 42/333 kBProgress (1): 43/333 kBProgress (1): 45/333 kBProgress (1): 46/333 kBProgress (1): 47/333 kBProgress (1): 49/333 kBProgress (1): 50/333 kBProgress (1): 51/333 kBProgress (1): 53/333 kBProgress (1): 54/333 kBProgress (1): 56/333 kBProgress (1): 60/333 kBProgress (1): 64/333 kBProgress (1): 68/333 kBProgress (1): 73/333 kBProgress (1): 77/333 kBProgress (1): 81/333 kBProgress (1): 85/333 kBProgress (1): 89/333 kBProgress (1): 94/333 kBProgress (1): 98/333 kBProgress (1): 102/333 kBProgress (1): 106/333 kBProgress (1): 111/333 kBProgress (1): 115/333 kBProgress (1): 119/333 kBProgress (1): 123/333 kBProgress (1): 127/333 kBProgress (1): 132/333 kBProgress (1): 136/333 kBProgress (1): 140/333 kBProgress (1): 144/333 kBProgress (1): 149/333 kBProgress (1): 153/333 kBProgress (1): 157/333 kBProgress (1): 161/333 kBProgress (1): 165/333 kBProgress (1): 170/333 kBProgress (1): 174/333 kBProgress (1): 178/333 kBProgress (1): 182/333 kBProgress (1): 187/333 kBProgress (1): 191/333 kBProgress (1): 195/333 kBProgress (1): 199/333 kBProgress (1): 203/333 kBProgress (1): 208/333 kBProgress (1): 212/333 kBProgress (1): 216/333 kBProgress (1): 220/333 kBProgress (1): 225/333 kBProgress (1): 241/333 kBProgress (1): 246/333 kBProgress (1): 262/333 kBProgress (1): 279/333 kBProgress (1): 295/333 kBProgress (1): 311/333 kBProgress (1): 328/333 kBProgress (1): 333 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-buildpack-platform/4.1.0/spring-boot-buildpack-platform-4.1.0.jar (333 kB at 92 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-loader-tools/4.1.0/spring-boot-loader-tools-4.1.0.jar
+Downloading from central: https://repo.maven.apache.org/maven2/io/micrometer/micrometer-observation/1.16.6/micrometer-observation-1.16.6.jar
+Downloading from central: https://repo.maven.apache.org/maven2/io/micrometer/micrometer-commons/1.16.6/micrometer-commons-1.16.6.jar
+Progress (1): 7.7/84 kBProgress (1): 7.7/84 kBProgress (1): 24/84 kB Progress (1): 40/84 kBProgress (2): 40/84 kB | 0.9/52 kBProgress (2): 40/84 kB | 2.3/52 kBProgress (2): 40/84 kB | 3.6/52 kBProgress (2): 40/84 kB | 5.0/52 kBProgress (2): 40/84 kB | 6.4/52 kBProgress (2): 57/84 kB | 6.4/52 kBProgress (2): 73/84 kB | 6.4/52 kBProgress (2): 84 kB | 6.4/52 kB                                  Downloaded from central: https://repo.maven.apache.org/maven2/io/micrometer/micrometer-observation/1.16.6/micrometer-observation-1.16.6.jar (84 kB at 134 kB/s)
+Progress (1): 7.7/52 kBProgress (1): 9.1/52 kBProgress (1): 10/52 kB Progress (1): 12/52 kBProgress (1): 13/52 kBProgress (1): 15/52 kBProgress (1): 16/52 kBProgress (1): 17/52 kBProgress (1): 19/52 kBProgress (1): 20/52 kBProgress (1): 21/52 kBProgress (1): 23/52 kBProgress (1): 24/52 kBProgress (1): 25/52 kBProgress (1): 27/52 kBProgress (1): 28/52 kBProgress (1): 30/52 kBProgress (1): 31/52 kBProgress (1): 32/52 kBProgress (1): 34/52 kBProgress (1): 35/52 kBProgress (1): 36/52 kBProgress (1): 38/52 kBProgress (1): 39/52 kBProgress (1): 41/52 kBProgress (2): 41/52 kB | 0.9/342 kBProgress (2): 41/52 kB | 2.3/342 kBProgress (2): 41/52 kB | 3.6/342 kBProgress (2): 41/52 kB | 5.0/342 kBProgress (2): 41/52 kB | 6.4/342 kBProgress (2): 41/52 kB | 7.7/342 kBProgress (2): 41/52 kB | 9.1/342 kBProgress (2): 41/52 kB | 10/342 kB Progress (2): 41/52 kB | 12/342 kBProgress (2): 41/52 kB | 13/342 kBProgress (2): 41/52 kB | 15/342 kBProgress (2): 41/52 kB | 16/342 kBProgress (2): 41/52 kB | 17/342 kBProgress (2): 41/52 kB | 19/342 kBProgress (2): 41/52 kB | 20/342 kBProgress (2): 41/52 kB | 21/342 kBProgress (2): 41/52 kB | 23/342 kBProgress (2): 41/52 kB | 24/342 kBProgress (2): 41/52 kB | 25/342 kBProgress (2): 41/52 kB | 27/342 kBProgress (2): 41/52 kB | 28/342 kBProgress (2): 41/52 kB | 30/342 kBProgress (2): 41/52 kB | 31/342 kBProgress (2): 41/52 kB | 32/342 kBProgress (2): 41/52 kB | 34/342 kBProgress (2): 41/52 kB | 35/342 kBProgress (2): 41/52 kB | 36/342 kBProgress (2): 41/52 kB | 38/342 kBProgress (2): 41/52 kB | 39/342 kBProgress (2): 41/52 kB | 41/342 kBProgress (2): 41/52 kB | 42/342 kBProgress (2): 41/52 kB | 43/342 kBProgress (2): 41/52 kB | 45/342 kBProgress (2): 41/52 kB | 46/342 kBProgress (2): 41/52 kB | 47/342 kBProgress (2): 41/52 kB | 49/342 kBProgress (2): 41/52 kB | 50/342 kBProgress (2): 41/52 kB | 51/342 kBProgress (2): 41/52 kB | 53/342 kBProgress (2): 41/52 kB | 54/342 kBProgress (2): 41/52 kB | 56/342 kBProgress (2): 41/52 kB | 60/342 kBProgress (2): 41/52 kB | 64/342 kBProgress (2): 41/52 kB | 68/342 kBProgress (2): 41/52 kB | 73/342 kBProgress (2): 41/52 kB | 77/342 kBProgress (2): 41/52 kB | 81/342 kBProgress (2): 41/52 kB | 82/342 kBProgress (2): 41/52 kB | 86/342 kBProgress (2): 41/52 kB | 90/342 kBProgress (2): 41/52 kB | 95/342 kBProgress (2): 41/52 kB | 99/342 kBProgress (2): 41/52 kB | 103/342 kBProgress (2): 41/52 kB | 107/342 kBProgress (2): 41/52 kB | 112/342 kBProgress (2): 41/52 kB | 115/342 kBProgress (2): 41/52 kB | 119/342 kBProgress (2): 41/52 kB | 123/342 kBProgress (2): 41/52 kB | 127/342 kBProgress (2): 41/52 kB | 131/342 kBProgress (2): 41/52 kB | 135/342 kBProgress (2): 41/52 kB | 140/342 kBProgress (2): 41/52 kB | 144/342 kBProgress (2): 42/52 kB | 144/342 kBProgress (2): 43/52 kB | 144/342 kBProgress (2): 45/52 kB | 144/342 kBProgress (2): 46/52 kB | 144/342 kBProgress (2): 47/52 kB | 144/342 kBProgress (2): 49/52 kB | 144/342 kBProgress (2): 50/52 kB | 144/342 kBProgress (2): 51/52 kB | 144/342 kBProgress (2): 52 kB | 144/342 kB                                   Downloaded from central: https://repo.maven.apache.org/maven2/io/micrometer/micrometer-commons/1.16.6/micrometer-commons-1.16.6.jar (52 kB at 23 kB/s)
+Progress (1): 147/342 kBProgress (1): 148/342 kBProgress (1): 152/342 kBProgress (1): 156/342 kBProgress (1): 161/342 kBProgress (1): 165/342 kBProgress (1): 169/342 kBProgress (1): 173/342 kBProgress (1): 178/342 kBProgress (1): 182/342 kBProgress (1): 186/342 kBProgress (1): 190/342 kBProgress (1): 195/342 kBProgress (1): 199/342 kBProgress (1): 203/342 kBProgress (1): 207/342 kBProgress (1): 211/342 kBProgress (1): 216/342 kBProgress (1): 220/342 kBProgress (1): 236/342 kBProgress (1): 253/342 kBProgress (1): 269/342 kBProgress (1): 279/342 kBProgress (1): 285/342 kBProgress (1): 302/342 kBProgress (1): 318/342 kBProgress (1): 335/342 kBProgress (1): 342 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-loader-tools/4.1.0/spring-boot-loader-tools-4.1.0.jar (342 kB at 74 kB/s)
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-08-06T21:49:18.646+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] m.parseltongue.AuthServiceApplication    : Starting AuthServiceApplication using Java 17.0.18 with PID 11920 (D:\Work\Parseltongue\auth-service\target\classes started by 11857 in D:\Work\Parseltongue\auth-service)
+2026-08-06T21:49:18.652+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] m.parseltongue.AuthServiceApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-08-06T21:49:18.699+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-06T21:49:18.699+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-06T21:49:19.660+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-08-06T21:49:19.674+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-06T21:49:19.674+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-06T21:49:19.716+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1016 ms
+2026-08-06T21:49:19.870+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-06T21:49:20.169+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@31c7c2f3
+2026-08-06T21:49:20.170+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-06T21:49:20.199+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://localhost:3306/parseltongue?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai (MySQL 8.4)
+2026-08-06T21:49:20.313+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table `parseltongue`.`flyway_schema_history` does not exist yet
+2026-08-06T21:49:20.319+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.030s)
+2026-08-06T21:49:20.353+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table `parseltongue`.`flyway_schema_history` ...
+2026-08-06T21:49:20.474+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `parseltongue`: << Empty Schema >>
+2026-08-06T21:49:20.489+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema `parseltongue` to version "1 - create users"
+2026-08-06T21:49:20.669+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema `parseltongue` to version "2 - remove user email"
+2026-08-06T21:49:20.796+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema `parseltongue`, now at version v2 (execution time 00:00.218s)
+2026-08-06T21:49:21.927+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
+2026-08-06T21:49:21.936+08:00  INFO 11920 --- [ParseltongueAuthService] [  restartedMain] m.parseltongue.AuthServiceApplication    : Started AuthServiceApplication in 3.667 seconds (process running for 4.034)
+2026-08-06T21:56:29.583+08:00  INFO 11920 --- [ParseltongueAuthService] [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-08-06T21:56:29.583+08:00  INFO 11920 --- [ParseltongueAuthService] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-08-06T21:56:29.583+08:00  INFO 11920 --- [ParseltongueAuthService] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-08-06T21:56:29.707+08:00  WARN 11920 --- [ParseltongueAuthService] [nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [mozhi.parseltongue.exception.ApiException: 缺少刷新令牌]
+2026-08-06T21:56:33.737+08:00  WARN 11920 --- [ParseltongueAuthService] [nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [mozhi.parseltongue.exception.ApiException: 用户名或密码错误]
+2026-08-06T21:56:38.028+08:00  WARN 11920 --- [ParseltongueAuthService] [nio-8081-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [mozhi.parseltongue.exception.ApiException: 用户名或密码错误]
+2026-08-06T21:58:14.132+08:00  WARN 11920 --- [ParseltongueAuthService] [nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [mozhi.parseltongue.exception.ApiException: 用户名或密码错误]
+2026-08-06T21:58:32.154+08:00  WARN 11920 --- [ParseltongueAuthService] [nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [mozhi.parseltongue.exception.ApiException: 缺少刷新令牌]
+2026-08-06T21:58:34.822+08:00  WARN 11920 --- [ParseltongueAuthService] [nio-8081-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [mozhi.parseltongue.exception.ApiException: 缺少刷新令牌]
+2026-08-06T21:58:41.011+08:00  WARN 11920 --- [ParseltongueAuthService] [nio-8081-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [mozhi.parseltongue.exception.ApiException: 用户名已被使用]
+2026-08-06T21:58:45.505+08:00  WARN 11920 --- [ParseltongueAuthService] [nio-8081-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [mozhi.parseltongue.exception.ApiException: 用户名或密码错误]
+2026-08-06T21:58:49.027+08:00  WARN 11920 --- [ParseltongueAuthService] [nio-8081-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [mozhi.parseltongue.exception.ApiException: 用户名或密码错误]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  12:10 min
+[INFO] Finished at: 2026-08-06T22:01:13+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:4.1.0:run (default-cli) on project auth-service: Process terminated with exit code: -1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

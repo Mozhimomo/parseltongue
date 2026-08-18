@@ -1,0 +1,98 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< mozhi:gateway-service >------------------------
+[INFO] Building Parseltongue Gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:4.1.0:run (default-cli) > test-compile @ gateway-service >>>
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ gateway-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ gateway-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ gateway-service ---
+[INFO] skip non existing resourceDirectory D:\Work\Parseltongue\gateway-service\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ gateway-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:4.1.0:run (default-cli) < test-compile @ gateway-service <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:4.1.0:run (default-cli) @ gateway-service ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-08-06T21:50:33.976+08:00  INFO 27208 --- [ParseltongueGateway] [           main] m.p.g.ParseltongueGatewayApplication     : Starting ParseltongueGatewayApplication using Java 17.0.18 with PID 27208 (D:\Work\Parseltongue\gateway-service\target\classes started by 11857 in D:\Work\Parseltongue\gateway-service)
+2026-08-06T21:50:33.989+08:00  INFO 27208 --- [ParseltongueGateway] [           main] m.p.g.ParseltongueGatewayApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-08-06T21:50:35.068+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=62ee6702-bcc3-3c0d-8499-091904880e19
+2026-08-06T21:50:36.961+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-08-06T21:50:38.601+08:00  WARN 27208 --- [ParseltongueGateway] [           main] o.h.v.i.m.a.CascadingMetaDataBuilder     : HV000271: Using `@Valid` on a container (java.util.List) is deprecated. You should apply the annotation on the type argument(s). Affected element: routes
+2026-08-06T21:50:38.914+08:00  WARN 27208 --- [ParseltongueGateway] [           main] o.h.v.i.m.a.CascadingMetaDataBuilder     : HV000271: Using `@Valid` on a container (java.util.List) is deprecated. You should apply the annotation on the type argument(s). Affected element: filters
+2026-08-06T21:50:38.915+08:00  WARN 27208 --- [ParseltongueGateway] [           main] o.h.v.i.m.a.CascadingMetaDataBuilder     : HV000271: Using `@Valid` on a container (java.util.List) is deprecated. You should apply the annotation on the type argument(s). Affected element: predicates
+2026-08-06T21:50:40.995+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2026-08-06T21:50:40.996+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2026-08-06T21:50:40.996+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2026-08-06T21:50:40.996+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2026-08-06T21:50:40.997+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2026-08-06T21:50:40.997+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2026-08-06T21:50:40.997+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2026-08-06T21:50:40.997+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2026-08-06T21:50:40.997+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2026-08-06T21:50:40.997+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2026-08-06T21:50:40.997+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2026-08-06T21:50:40.997+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Version]
+2026-08-06T21:50:40.997+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2026-08-06T21:50:40.997+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2026-08-06T21:50:40.997+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2026-08-06T21:50:42.933+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-08-06T21:50:43.015+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2026-08-06T21:50:44.143+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.boot.reactor.netty.NettyWebServer    : Netty started on port 8080 (http)
+2026-08-06T21:50:45.666+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-08-06T21:50:47.091+08:00  INFO 27208 --- [ParseltongueGateway] [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-08-06T21:50:47.186+08:00  INFO 27208 --- [ParseltongueGateway] [           main] m.p.g.ParseltongueGatewayApplication     : Started ParseltongueGatewayApplication in 15.223 seconds (process running for 15.831)
+2026-08-06T21:56:29.728+08:00  INFO 27208 --- [ParseltongueGateway] [ctor-http-nio-7] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=8832f965-d500-4bc1-ac3c-d983283f56af method=POST path=/api/auth/refresh status=401 UNAUTHORIZED durationMs=806
+2026-08-06T21:56:33.744+08:00  INFO 27208 --- [ParseltongueGateway] [tor-http-nio-12] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=10f13a03-d1e9-4fab-a2ae-20d652c79855 method=POST path=/api/auth/login status=401 UNAUTHORIZED durationMs=317
+2026-08-06T21:56:38.088+08:00  INFO 27208 --- [ParseltongueGateway] [tor-http-nio-13] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=f4a613df-1235-44a8-8033-026fde29fac0 method=POST path=/api/auth/login status=401 UNAUTHORIZED durationMs=166
+2026-08-06T21:56:51.436+08:00  INFO 27208 --- [ParseltongueGateway] [tor-http-nio-14] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=d58add65-3889-4878-9d5d-8bf68d4a2037 method=POST path=/api/auth/register status=201 CREATED durationMs=987
+2026-08-06T21:56:55.318+08:00  INFO 27208 --- [ParseltongueGateway] [tor-http-nio-15] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=acc3ab38-9d91-455b-8c79-df1d2881791a method=POST path=/api/auth/login status=200 OK durationMs=1363
+2026-08-06T21:57:07.645+08:00  INFO 27208 --- [ParseltongueGateway] [tor-http-nio-16] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=b274e64d-4289-47da-bd6c-43e4288650db method=GET path=/api/users/me status=200 OK durationMs=141
+2026-08-06T21:57:08.436+08:00  INFO 27208 --- [ParseltongueGateway] [tor-http-nio-17] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=7474bac2-e069-43c6-9ba3-81afcaf42445 method=POST path=/api/auth/refresh status=200 OK durationMs=58
+2026-08-06T21:57:09.832+08:00  INFO 27208 --- [ParseltongueGateway] [tor-http-nio-18] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=dc724d4c-c33e-4a22-b027-ebe2da05e94e method=POST path=/api/auth/logout status=200 OK durationMs=114
+2026-08-06T21:57:11.993+08:00  INFO 27208 --- [ParseltongueGateway] [tor-http-nio-19] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=a597f9a6-b8e4-4d86-ad53-29ca38dbd388 method=POST path=/api/auth/login status=200 OK durationMs=854
+2026-08-06T21:57:14.938+08:00  INFO 27208 --- [ParseltongueGateway] [tor-http-nio-20] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=c516d57a-c77c-4637-9eda-40ac9d93ebc0 method=POST path=/api/auth/logout-all status=200 OK durationMs=87
+2026-08-06T21:58:14.132+08:00  INFO 27208 --- [ParseltongueGateway] [tor-http-nio-21] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=ff18367f-3728-4a41-bd10-9a74e1a95877 method=POST path=/api/auth/login status=401 UNAUTHORIZED durationMs=14
+2026-08-06T21:58:32.160+08:00  INFO 27208 --- [ParseltongueGateway] [tor-http-nio-22] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=b3949317-8575-4280-a53e-135ff74163c7 method=POST path=/api/auth/refresh status=401 UNAUTHORIZED durationMs=27
+2026-08-06T21:58:34.827+08:00  INFO 27208 --- [ParseltongueGateway] [tor-http-nio-23] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=49eb6a2c-094a-439f-b371-4abd1e06a5f0 method=POST path=/api/auth/refresh status=401 UNAUTHORIZED durationMs=23
+2026-08-06T21:58:41.020+08:00  INFO 27208 --- [ParseltongueGateway] [tor-http-nio-24] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=3cc913a5-1857-427e-916f-7de3f77bfa2f method=POST path=/api/auth/register status=409 CONFLICT durationMs=38
+2026-08-06T21:58:45.509+08:00  INFO 27208 --- [ParseltongueGateway] [ctor-http-nio-1] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=22a0f11c-0399-4272-990c-6cb3c8bae94b method=POST path=/api/auth/login status=401 UNAUTHORIZED durationMs=871
+2026-08-06T21:58:49.031+08:00  INFO 27208 --- [ParseltongueGateway] [ctor-http-nio-8] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=9a243106-e948-4b7a-b931-0931772dc151 method=POST path=/api/auth/login status=401 UNAUTHORIZED durationMs=1095
+2026-08-06T21:58:57.790+08:00  INFO 27208 --- [ParseltongueGateway] [ctor-http-nio-2] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=5bffa8d6-438c-4cb8-acb3-78a17598616b method=POST path=/api/auth/login status=200 OK durationMs=931
+2026-08-06T22:00:11.523+08:00  INFO 27208 --- [ParseltongueGateway] [ctor-http-nio-3] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=cff3f6aa-cf95-4564-85f7-168006013a98 method=POST path=/api/auth/refresh status=200 OK durationMs=67
+2026-08-06T22:00:12.680+08:00  INFO 27208 --- [ParseltongueGateway] [ctor-http-nio-6] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=b609621c-1974-4e8f-95ba-d058b47dc17f method=POST path=/api/auth/refresh status=200 OK durationMs=72
+2026-08-06T22:00:19.129+08:00  INFO 27208 --- [ParseltongueGateway] [ctor-http-nio-7] m.p.g.filter.RequestTraceGlobalFilter    : gateway request id=14405065-52ec-4605-8156-fdb2a2d1cdd4 method=GET path=/api/users/me status=200 OK durationMs=37
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10:46 min
+[INFO] Finished at: 2026-08-06T22:01:13+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:4.1.0:run (default-cli) on project gateway-service: Process terminated with exit code: -1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
