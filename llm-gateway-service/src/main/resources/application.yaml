@@ -1,0 +1,47 @@
+server:
+  address: ${LLM_SERVICE_ADDRESS:127.0.0.1}
+  port: ${LLM_SERVICE_PORT:8083}
+  error:
+    include-message: never
+    include-stacktrace: never
+
+spring:
+  config:
+    import: optional:file:./.local/llm.properties,optional:file:../.local/llm.properties
+  application:
+    name: ParseltongueLlmGateway
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+
+llm:
+  gateway-token: ${LLM_GATEWAY_TOKEN:dev-local-gateway-token-20260906}
+  timeout: ${LLM_TIMEOUT:60s}
+  max-concurrent-calls: ${LLM_MAX_CONCURRENT_CALLS:4}
+  max-input-characters: ${LLM_MAX_INPUT_CHARACTERS:32000}
+  providers:
+    deepseek:
+      api-key: ${LLM_API_KEY:}
+      base-url: ${LLM_BASE_URL:https://api.deepseek.com}
+  models:
+    low-cost:
+      provider: ${LLM_LOW_COST_PROVIDER:deepseek}
+      provider-model: ${LLM_LOW_COST_MODEL:deepseek-v4-flash}
+      max-output-tokens: ${LLM_LOW_COST_MAX_OUTPUT_TOKENS:2048}
+      completion-token-limit: ${LLM_LOW_COST_COMPLETION_TOKEN_LIMIT:false}
+      thinking: ${LLM_LOW_COST_THINKING:disabled}
+    high-capability:
+      provider: ${LLM_HIGH_CAPABILITY_PROVIDER:deepseek}
+      provider-model: ${LLM_HIGH_CAPABILITY_MODEL:deepseek-v4-flash}
+      max-output-tokens: ${LLM_HIGH_CAPABILITY_MAX_OUTPUT_TOKENS:8192}
+      completion-token-limit: ${LLM_HIGH_CAPABILITY_COMPLETION_TOKEN_LIMIT:false}
+      thinking: ${LLM_HIGH_CAPABILITY_THINKING:disabled}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never

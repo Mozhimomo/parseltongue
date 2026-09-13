@@ -1,0 +1,6 @@
+# Copy to project-root .local/e2b.properties (gitignored).
+# The API key is read by arena-service and the trusted E2B SDK controller only.
+E2B_API_KEY=
+E2B_TEMPLATE=base
+# Use an absolute path; install match-worker/requirements.txt into this Python.
+# E2B_PYTHON=D:/Work/Parseltongue/.local/e2b-venv/Scripts/python.exe

@@ -1,9 +1,10 @@
-/** Cloudflare Worker entry point for the vinext-starter template. */
+/** Product server entry: browser APIs always use the configured business gateway. */
 import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } from "vinext/server/image-optimization";
 import handler from "vinext/server/app-router-entry";
 
 interface Env {
-  ASSETS: Fetcher;
+  GATEWAY_URL?: string;
+  ASSETS: { fetch(request: Request): Promise<Response> };
   IMAGES: {
     input(stream: ReadableStream): {
       transform(options: Record<string, unknown>): {
@@ -27,6 +28,28 @@ interface ExecutionContext {
 const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
+
+    if (url.pathname === "/api" || url.pathname.startsWith("/api/")) {
+      if (!env.GATEWAY_URL) {
+        return Response.json({ code: 50300, message: "服务暂时不可用，请稍后重试。", data: null }, { status: 503 });
+      }
+      const gateway = new URL(env.GATEWAY_URL);
+      const target = new URL(url.pathname + url.search, gateway.origin);
+      const headers = new Headers(request.headers);
+      headers.delete("host");
+      headers.delete("x-user-id");
+      headers.delete("x-service-id");
+      try {
+        const upstream = await fetch(target, {
+          method: request.method, headers,
+          body: request.method === "GET" || request.method === "HEAD" ? undefined : request.body,
+          redirect: "manual",
+        });
+        return new Response(upstream.body, { status: upstream.status, headers: upstream.headers });
+      } catch {
+        return Response.json({ code: 50300, message: "服务暂时不可用，请稍后重试。", data: null }, { status: 503 });
+      }
+    }
 
     if (url.pathname === "/_vinext/image") {
       const allowedWidths = [...DEFAULT_DEVICE_SIZES, ...DEFAULT_IMAGE_SIZES];

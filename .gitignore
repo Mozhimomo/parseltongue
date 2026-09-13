@@ -31,3 +31,29 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Python game worker ###
+__pycache__/
+*.py[cod]
+match-worker/outputs/
+
+### Required frontend build source ###
+!demo-frontend/build/
+!demo-frontend/build/sites-vite-plugin.ts
+
+### Local service credentials ###
+/.local/
+.env
+.env.*
+!.env.example
+*.local.properties
+application-local.yaml
+application-local.yml
+application-local.properties
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+/.claude/settings.local.json

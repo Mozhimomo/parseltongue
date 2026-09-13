@@ -1,0 +1,36 @@
+spring:
+  config:
+    import: optional:file:./.local/arena.properties,optional:file:../.local/arena.properties,optional:file:./.local/e2b.properties,optional:file:../.local/e2b.properties
+  application:
+    name: ParseltongueArena
+  datasource:
+    url: ${ARENA_DB_URL:${DB_URL:jdbc:mysql://127.0.0.1:3307/parseltongue?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai}}
+    username: ${ARENA_DB_USERNAME:${DB_USERNAME:parseltongue}}
+    password: ${ARENA_DB_PASSWORD:${DB_PASSWORD}}
+  flyway:
+    locations: classpath:db/arena-migration
+    table: arena_flyway_schema_history
+    baseline-on-migrate: true
+    baseline-version: 0
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+server:
+  address: ${ARENA_BIND_ADDRESS:127.0.0.1}
+  port: ${ARENA_SERVICE_PORT:8082}
+arena:
+  e2b:
+    api-key: ${E2B_API_KEY:}
+    template: ${E2B_TEMPLATE:base}
+    python: ${E2B_PYTHON:${GAME_PYTHON:python}}
+  generation-model: ${SNAKE_GENERATION_MODEL:high-capability}
+  intent-model: ${SNAKE_INTENT_MODEL:low-cost}
+  security-model: ${SNAKE_SECURITY_MODEL:low-cost}
+  snake-directory: ${SNAKE_STORAGE_DIR:}
+  internal-gateway-url: ${INTERNAL_GATEWAY_URL:http://127.0.0.1:8084}
+  generation-service-token: ${GENERATION_SERVICE_TOKEN:}
+  gateway-url: ${GATEWAY_URL:http://localhost:8080}
+  python: ${GAME_PYTHON:python}
+  worker-directory: ${GAME_WORKER_DIR:}

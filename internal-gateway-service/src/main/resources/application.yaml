@@ -1,0 +1,42 @@
+# 独立内部网关：路由表仅含两个模型接口，默认只监听 127.0.0.1:8084。
+server:
+  address: ${INTERNAL_GATEWAY_ADDRESS:127.0.0.1}
+  port: ${INTERNAL_GATEWAY_PORT:8084}
+
+spring:
+  application:
+    name: ParseltongueInternalGateway
+  config:
+    import: optional:file:./.local/internal-gateway.properties,optional:file:../.local/internal-gateway.properties
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: llm-gateway-service
+              uri: ${LLM_SERVICE_URL:http://127.0.0.1:8083}
+              predicates:
+                - Path=/internal/llm/generations
+                - Method=POST
+              filters:
+                - name: RequestSize
+                  args:
+                    maxSize: 128KB
+            - id: llm-model-registry
+              uri: ${LLM_SERVICE_URL:http://127.0.0.1:8083}
+              predicates:
+                - Path=/internal/llm/models
+                - Method=GET
+          httpclient:
+            response-timeout: ${INTERNAL_GATEWAY_RESPONSE_TIMEOUT:70s}
+
+gateway:
+  internal:
+    caller-token: ${GENERATION_SERVICE_TOKEN:}
+    llm-token: ${LLM_GATEWAY_TOKEN:}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

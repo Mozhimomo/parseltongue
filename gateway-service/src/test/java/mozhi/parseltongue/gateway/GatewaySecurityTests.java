@@ -29,7 +29,7 @@ import java.util.Date;
 class GatewaySecurityTests {
 
     private static final String JWT_SECRET =
-            "cGFyc2VsdG9uZ3VlLWRldi1qd3Qtc2VjcmV0LWNoYW5nZS1tZQ==";
+            "dGVzdC1qd3Qtc2VjcmV0LW11c3QtYmUtYXQtbGVhc3QtMzItYnl0ZXM=";
     private static final DisposableServer BACKEND = HttpServer.create()
             .host("127.0.0.1")
             .port(0)
@@ -41,14 +41,21 @@ class GatewaySecurityTests {
 
     private final WebTestClient webTestClient;
 
+    private static final DisposableServer ARENA = HttpServer.create().host("127.0.0.1").port(0)
+            .handle((request, response) -> response.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                    .sendString(Mono.just("{\"arena\":true}"))).bindNow();
+
     @DynamicPropertySource
     static void gatewayProperties(DynamicPropertyRegistry registry) {
+        registry.add("JWT_SECRET", () -> JWT_SECRET);
         registry.add("AUTH_SERVICE_URL", () -> "http://127.0.0.1:" + BACKEND.port());
+        registry.add("ARENA_SERVICE_URL", () -> "http://127.0.0.1:" + ARENA.port());
     }
 
     @AfterAll
     static void stopBackend() {
         BACKEND.disposeNow();
+        ARENA.disposeNow();
     }
 
     @Autowired
@@ -128,6 +135,15 @@ class GatewaySecurityTests {
                 .jsonPath("$.status").isEqualTo("UP");
     }
 
+    @Test
+    void publicGatewayRejectsInternalModelCallsEvenWithUserJwt() throws Exception {
+        String token = createAccessToken();
+        webTestClient.post().uri("/internal/llm/generations")
+                .headers(headers -> headers.setBearerAuth(token))
+                .contentType(MediaType.APPLICATION_JSON).bodyValue("{}")
+                .exchange().expectStatus().isForbidden();
+    }
+
     private String createAccessToken() throws Exception {
         Instant now = Instant.now();
         JWTClaimsSet claims = new JWTClaimsSet.Builder()
@@ -139,5 +155,13 @@ class GatewaySecurityTests {
         SignedJWT token = new SignedJWT(new JWSHeader(JWSAlgorithm.HS256), claims);
         token.sign(new MACSigner(Base64.getDecoder().decode(JWT_SECRET)));
         return token.serialize();
+    }
+
+    @Test
+    void gameRoutesRequireTokenAndReachArenaInsteadOfAuth() throws Exception {
+        String token = createAccessToken();
+        webTestClient.get().uri("/api/game/agents").exchange().expectStatus().isUnauthorized();
+        webTestClient.get().uri("/api/game/agents").headers(h -> h.setBearerAuth(token))
+                .exchange().expectStatus().isOk().expectBody().jsonPath("$.arena").isEqualTo(true);
     }
 }

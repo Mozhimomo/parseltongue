@@ -6,14 +6,14 @@ services:
     environment:
       MYSQL_DATABASE: parseltongue
       MYSQL_USER: parseltongue
-      MYSQL_PASSWORD: parseltongue_dev
-      MYSQL_ROOT_PASSWORD: root_dev_only
+      MYSQL_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD in .env}
     ports:
-      - "3306:3306"
+      - "127.0.0.1:3307:3306"
     volumes:
       - parseltongue_mysql_data:/var/lib/mysql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot_dev_only"]
+      test: ["CMD-SHELL", 'MYSQL_PWD="$${MYSQL_ROOT_PASSWORD}" mysqladmin ping -h localhost -uroot']
       interval: 5s
       timeout: 3s
       retries: 20

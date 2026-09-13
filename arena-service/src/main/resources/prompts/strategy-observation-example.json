@@ -1,0 +1,16 @@
+{
+  "protocol_version": "snake-v1",
+  "ruleset_version": "survival-hunger-v1",
+  "tick": 0,
+  "max_ticks": 200,
+  "board": {"width": 20, "height": 20, "obstacles": []},
+  "self": {"id": "s1", "body": [[4,2],[3,2],[2,2]], "direction": "RIGHT", "hunger": 100, "hunger_max": 100, "alive": true, "death_reason": null, "death_tick": null},
+  "snakes": [
+    {"id": "s1", "body": [[4,2],[3,2],[2,2]], "direction": "RIGHT", "hunger": 100, "hunger_max": 100, "alive": true, "death_reason": null, "death_tick": null},
+    {"id": "s2", "body": [[17,4],[17,3],[17,2]], "direction": "DOWN", "hunger": 100, "hunger_max": 100, "alive": true, "death_reason": null, "death_tick": null},
+    {"id": "s3", "body": [[15,17],[16,17],[17,17]], "direction": "LEFT", "hunger": 100, "hunger_max": 100, "alive": true, "death_reason": null, "death_tick": null},
+    {"id": "s4", "body": [[2,15],[2,16],[2,17]], "direction": "UP", "hunger": 100, "hunger_max": 100, "alive": true, "death_reason": null, "death_tick": null}
+  ],
+  "food": [[5,2]],
+  "hunger_rules": {"decay": 1, "food_restore": 40}
+}

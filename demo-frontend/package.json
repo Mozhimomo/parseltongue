@@ -1,5 +1,5 @@
 {
-  "name": "parseltongue-auth-demo",
+  "name": "parseltongue-web",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -9,7 +9,9 @@
     "dev": "vinext dev",
     "build": "vinext build",
     "start": "vinext start",
-    "test": "npm run build",
+    "test": "npm run test:unit && npm run typecheck && npm run build",
+    "test:unit": "node --experimental-strip-types --test tests/*.test.mjs",
+    "typecheck": "tsc --noEmit --incremental false",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next"
   },
   "dependencies": {

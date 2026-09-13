@@ -20,7 +20,10 @@
 
     <modules>
         <module>gateway-service</module>
+        <module>internal-gateway-service</module>
         <module>auth-service</module>
+        <module>arena-service</module>
+        <module>llm-gateway-service</module>
     </modules>
 
     <properties>

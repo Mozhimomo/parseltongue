@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol_version", "ruleset_version", "tick", "max_ticks", "board", "self", "snakes", "food", "hunger_rules"],
+  "properties": {
+    "protocol_version": {"const": "snake-v1"},
+    "ruleset_version": {"const": "survival-hunger-v1"},
+    "tick": {"type": "integer", "minimum": 0},
+    "max_ticks": {"type": "integer", "minimum": 1, "maximum": 2000},
+    "board": {
+      "type": "object", "additionalProperties": false,
+      "required": ["width", "height", "obstacles"],
+      "properties": {
+        "width": {"type": "integer", "minimum": 8, "maximum": 40},
+        "height": {"type": "integer", "minimum": 8, "maximum": 40},
+        "obstacles": {"type": "array", "maxItems": 0, "items": {"$ref": "#/$defs/point"}}
+      }
+    },
+    "self": {
+      "allOf": [{"$ref": "#/$defs/snake"}, {"properties": {"alive": {"const": true}, "death_reason": {"type": "null"}, "death_tick": {"type": "null"}}}]
+    },
+    "snakes": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"$ref": "#/$defs/snake"}},
+    "food": {"type": "array", "items": {"$ref": "#/$defs/point"}},
+    "hunger_rules": {
+      "type": "object", "additionalProperties": false, "required": ["decay", "food_restore"],
+      "properties": {
+        "decay": {"type": "integer", "minimum": 1, "maximum": 1000},
+        "food_restore": {"type": "integer", "minimum": 1, "maximum": 1000}
+      }
+    }
+  },
+  "$defs": {
+    "point": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "integer", "minimum": 0}},
+    "snake": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "body", "direction", "hunger", "hunger_max", "alive", "death_reason", "death_tick"],
+      "properties": {
+        "id": {"type": "string", "enum": ["s1", "s2", "s3", "s4"]},
+        "body": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/point"}},
+        "direction": {"type": "string", "enum": ["UP", "RIGHT", "DOWN", "LEFT"]},
+        "hunger": {"type": "integer", "minimum": 0, "maximum": 1000},
+        "hunger_max": {"type": "integer", "minimum": 1, "maximum": 1000},
+        "alive": {"type": "boolean"},
+        "death_reason": {"enum": [null, "AI_ERROR", "INVALID_ACTION", "REVERSE", "MISSING_ACTION", "WALL", "HEAD_ON", "HEAD_SWAP", "BODY", "STARVATION"]},
+        "death_tick": {"type": ["integer", "null"], "minimum": 1}
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mozhi.parseltongue.arena.StrategyMapper">
+    <resultMap id="metadata" type="mozhi.parseltongue.arena.StrategyService$StoredSnake">
+        <constructor>
+            <idArg column="id" javaType="java.lang.String"/>
+            <arg column="owner_id" javaType="_long"/>
+            <arg column="name" javaType="java.lang.String"/>
+            <arg column="description" javaType="java.lang.String"/>
+            <arg column="status" javaType="java.lang.String"/>
+            <arg column="error" javaType="java.lang.String"/>
+            <arg column="created_at" javaType="java.time.Instant"/>
+        </constructor>
+    </resultMap>
+    <resultMap id="version" type="mozhi.parseltongue.arena.StrategyRepository$Version">
+        <constructor>
+            <arg column="source_code" javaType="java.lang.String"/>
+            <arg column="source_sha256" javaType="java.lang.String"/>
+            <arg column="validation_result" javaType="java.lang.String"/>
+            <arg column="generation_model" javaType="java.lang.String"/>
+            <arg column="version_no" javaType="_int"/>
+        </constructor>
+    </resultMap>
+    <sql id="metadataColumns">id, owner_id, name, description, status, error, created_at</sql>
+    <!-- Only fixed column names may be selected; never interpolate SQL identifiers. -->
+    <sql id="artifactColumn">
+        <choose>
+            <when test="kind == 'security'">security_review</when>
+            <when test="kind == 'intent'">strategy_intent</when>
+        </choose>
+    </sql>
+    <select id="lockAdmission" resultType="int" useCache="false" flushCache="true">
+        SELECT id FROM snake_creation_guard WHERE id=1 FOR UPDATE
+    </select>
+    <select id="countGenerating" resultType="long">
+        SELECT COUNT(*) FROM snake_strategies WHERE status='GENERATING'
+    </select>
+    <select id="countGeneratingByOwner" resultType="long">
+        SELECT COUNT(*) FROM snake_strategies WHERE status='GENERATING' AND owner_id=#{owner}
+    </select>
+    <select id="countRecentByOwner" resultType="long">
+        SELECT COUNT(*) FROM snake_strategies WHERE owner_id=#{owner} AND created_at &gt; #{since}
+    </select>
+    <select id="countById" resultType="long">
+        SELECT COUNT(*) FROM snake_strategies WHERE id=#{id}
+    </select>
+    <insert id="insert">
+        INSERT INTO snake_strategies (id,owner_id,name,description,status,error,created_at,updated_at)
+        VALUES (#{snake.id},#{snake.owner},#{snake.name},#{snake.description},#{snake.status},
+                #{snake.error,jdbcType=VARCHAR},#{snake.createdAt},#{updatedAt})
+    </insert>
+    <select id="list" resultMap="metadata">
+        SELECT <include refid="metadataColumns"/> FROM snake_strategies
+        WHERE owner_id=#{owner} ORDER BY created_at DESC,id
+    </select>
+    <select id="find" resultMap="metadata">
+        SELECT <include refid="metadataColumns"/> FROM snake_strategies WHERE owner_id=#{owner} AND id=#{id}
+    </select>
+    <select id="version" resultMap="version">
+        SELECT v.source_code,v.source_sha256,v.validation_result,v.generation_model,v.version_no
+        FROM snake_strategies s JOIN snake_strategy_versions v ON v.strategy_id=s.id AND v.version_no=s.active_version
+        WHERE s.owner_id=#{owner} AND s.id=#{id} AND s.status='READY'
+    </select>
+    <select id="lockStatus" resultType="string" useCache="false" flushCache="true">
+        SELECT status FROM snake_strategies WHERE id=#{id} FOR UPDATE
+    </select>
+    <insert id="insertVersion">
+        INSERT INTO snake_strategy_versions
+            (strategy_id,version_no,source_code,source_sha256,validation_result,generation_model,created_at)
+        VALUES (#{id},1,#{source},#{sha256},#{validation,jdbcType=LONGVARCHAR},#{model,jdbcType=VARCHAR},#{createdAt})
+    </insert>
+    <update id="markReady">
+        UPDATE snake_strategies SET status='READY',error=NULL,active_version=1,updated_at=#{updatedAt} WHERE id=#{id}
+    </update>
+    <update id="saveArtifact">
+        UPDATE snake_strategies SET <include refid="artifactColumn"/>=#{json,jdbcType=LONGVARCHAR},updated_at=#{updatedAt}
+        WHERE id=#{id} AND status='GENERATING'
+    </update>
+    <select id="artifact" resultType="string">
+        SELECT <include refid="artifactColumn"/> FROM snake_strategies WHERE id=#{id}
+    </select>
+    <update id="fail">
+        UPDATE snake_strategies SET status='FAILED',error=#{error,jdbcType=VARCHAR},updated_at=#{updatedAt}
+        WHERE id=#{id} AND status='GENERATING'
+    </update>
+    <update id="recoverInterrupted">
+        UPDATE snake_strategies SET status='FAILED',error=#{error},updated_at=#{updatedAt} WHERE status='GENERATING'
+    </update>
+    <insert id="diagnostic">
+        INSERT INTO snake_generation_diagnostics(strategy_id,attempt_no,stage,code,detail,created_at)
+        VALUES (#{id},#{attempt},#{stage},#{code},#{detail},#{createdAt})
+    </insert>
+    <select id="diagnostics" resultType="map">
+        SELECT attempt_no,stage,code,detail,created_at FROM snake_generation_diagnostics WHERE strategy_id=#{id} ORDER BY id
+    </select>
+</mapper>
